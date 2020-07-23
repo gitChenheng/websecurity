@@ -21,13 +21,13 @@
     </style>
 </head>
 <body>
-<iframe src="http://localhost:3000/noteBoard/xss" frameborder="0" width="100%" id="iframe"></iframe>
+<iframe src="http://baidu.com" frameborder="0" width="100%" id="iframe"></iframe>
 <div class="mask" onclick="clickhandle()"></div>
 </body>
 <script>
     document.getElementById('iframe').style.height=window.screen.availHeight+'px';
     var clickhandle=function () {
-        alert('handle')
+        alert('handle attack')
     }
 </script>
 </html>

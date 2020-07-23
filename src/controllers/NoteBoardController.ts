@@ -22,7 +22,7 @@ export class NoteBoardController{
     public async pushNote(ctx){
         try {
             const body = ctx.request.body;
-            const content = filterXSS(body.content);
+            const content = (body.content);
             const res = await addNote({content});
             if (res)
                 ctx.rest(JSONResult.ok());
@@ -42,7 +42,6 @@ export class NoteBoardController{
     public async clickHandle(ctx){
         const fileSteamToStr = fs.readFileSync(`${process.cwd()}/src/public/templates/clickHandle.html`).toString();
         ctx.type = "text/html;charset=utf-8";
-        // ctx.set("X-FRAME-OPTIONS", "DENY");
         ctx.response.body = fileSteamToStr;
     }
 

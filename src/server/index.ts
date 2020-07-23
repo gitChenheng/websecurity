@@ -12,7 +12,7 @@ import cors from "@/middlewares/intercepter/cors";
 import {verify} from "@/middlewares/jwt";
 import rest from "@/middlewares/rest";
 import koaBody from "koa-body";
-import staticFiles from "koa-static";
+import serve from "koa-static";
 import {initGlobalEvents} from "@/utils/util";
 import https from "https";
 import routeHandler from "../middlewares/routeHandler";
@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === con_gl.ENV_PROD){
 
 initGlobalEvents();
 
-app.use(staticFiles(path.join(process.cwd(), "/src/public")));
+app.use(serve(path.join(process.cwd(), "/src/public/")));
 app.use(cors());
 app.use(verify());
 
